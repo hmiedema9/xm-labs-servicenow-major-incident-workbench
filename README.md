@@ -54,14 +54,13 @@ The following update sets are provided:
   - Notifications can also be triggered for **Incident Communication Tasks** to ensure stakeholders and communication teams are alerted promptly.  
   - These follow a similar trigger profile structure, allowing **separate workflows** for technical responders vs. communication recipients.  
 
+---
+
+## Trigger Profile: Incident Tasks
 
 To create a trigger profile, navigate to:
 
 **Everbridge Flow Designer → Global Settings → Trigger Profiles**
-
----
-
-## Trigger Profile: Incident Tasks
 
 1. Click **New** in the upper-right corner of the page.  
 2. Complete the following fields:
@@ -111,26 +110,3 @@ To create a trigger profile, navigate to:
 
 <img width="2650" height="974" alt="Incident_Communication_Task_TriggerProfile" src="https://github.com/user-attachments/assets/f49ecd55-f003-42a7-af6a-8475c56e94dd" />
 
-
-## Diagram
-
-flowchart TD
-
-    A[Major Incident Created] --> B{State?}
-
-    B -->|Proposed/Accepted| C[Trigger xMatters Notification]
-    B -->|Cancelled/Rejected| D[No Notification]
-
-    C --> E[Notify Technical Responders]
-    C --> F[Notify Stakeholders]
-
-    subgraph Incident Task Flow
-        G[Incident Task Created/Updated] --> H{Assignment Group Assigned?}
-        H -->|Yes| I[Trigger xMatters Notification for Task]
-        H -->|No| J[No Notification]
-    end
-
-    subgraph Communication Task Flow
-        K[Incident Communication Task Created/Updated] --> L[Trigger xMatters Notification for Comms]
-        L --> M[Notify Communication Teams]
-    end
