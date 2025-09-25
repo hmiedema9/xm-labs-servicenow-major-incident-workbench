@@ -28,6 +28,8 @@ To create a trigger profile, navigate to:
 
 3. Click **Submit** to create the trigger profile.
 
+<img width="2706" height="974" alt="Incident_Task_TriggerProfile" src="https://github.com/user-attachments/assets/4900c7c5-a050-40a6-b41a-39090c30aad5" />
+
 ---
 
 ## Trigger Profile: Incident Communication Task (sys_email)
@@ -51,3 +53,5 @@ To create a trigger profile, navigate to:
    - **ServiceNow API User:** Select the ServiceNow user account that Flow Designer will use to send updates back to ServiceNow.
 
 3. Click **Submit** to create the trigger profile.
+
+<img width="2650" height="974" alt="Incident_Communication_Task_TriggerProfile" src="https://github.com/user-attachments/assets/f49ecd55-f003-42a7-af6a-8475c56e94dd" />
