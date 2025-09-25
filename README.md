@@ -1,8 +1,6 @@
-# ServiceNow Major Incident Workbench Extension
+# ServiceNow xMatters Integration v2 Enhancement
 
 ## Integration Overview
-
-# ServiceNow xMatters Integration v2 Enhancement
 
 This enhancement extends the **ServiceNow xMatters Integration v2** by incorporating **ServiceNow Major Incident Management** into the xMatters notification process.  
 
