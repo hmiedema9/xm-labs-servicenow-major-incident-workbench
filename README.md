@@ -165,4 +165,26 @@ Verify functionality by creating:
 - An **Incident Task** and **Incident Communication Task**  
 - These should trigger based on workflow selection.
 
+## Diagram
+```mermaid
+flowchart TD
+
+    A[Major Incident Created] --> B{State?}
+
+    B -->|Proposed/Accepted| C[Trigger xMatters Notification]
+    B -->|Cancelled/Rejected| D[No Notification]
+
+    C --> E[Notify Technical Responders]
+    C --> F[Notify Stakeholders]
+
+    subgraph Incident Task Flow
+        G[Incident Task Created/Updated] --> H{Assignment Group Assigned?}
+        H -->|Yes| I[Trigger xMatters Notification for Task]
+        H -->|No| J[No Notification]
+    end
+
+    subgraph Communication Task Flow
+        K[Incident Communication Task Created/Updated] --> L[Trigger xMatters Notification for Comms]
+        L --> M[Notify Communication Teams]
+    end
 
