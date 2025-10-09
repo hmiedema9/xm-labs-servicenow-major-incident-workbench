@@ -1,4 +1,4 @@
-# ServiceNow xMatters Integration v2 Enhancement
+# Major Incident: Incident Task and Communication Task Notifications
 
 ## Integration Overview
 
