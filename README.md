@@ -1,8 +1,6 @@
-# ServiceNow Major Incident Workbench Extension
+# Major Incident: Incident Task and Communication Task Notifications
 
 ## Integration Overview
-
-# ServiceNow xMatters Integration v2 Enhancement
 
 This enhancement extends the **ServiceNow xMatters Integration v2** by incorporating **ServiceNow Major Incident Management** into the xMatters notification process.  
 
@@ -54,14 +52,60 @@ The following update sets are provided:
   - Notifications can also be triggered for **Incident Communication Tasks** to ensure stakeholders and communication teams are alerted promptly.  
   - These follow a similar trigger profile structure, allowing **separate workflows** for technical responders vs. communication recipients.  
 
+---
+
+# Installation Guide
+
+## 1. Import the ServiceNowMIMBusinessRules Update Set into ServiceNow
+
+### A. Import the XML File
+1. Log in to your **ServiceNow** instance with an **administrator role**.  
+2. In the left-hand navigation, search for and click on **Retrieved Update Sets** under the **System Update Sets** group.  
+3. On the **Retrieved Update Sets** page, scroll to the **Related Links** section and click **Import Update Set from XML**.  
+4. On the **Import XML** page:  
+   - Click **Choose File**.  
+   - Select your update set `.xml` file from your computer.  
+   - Click **Upload**.  
+
+### B. Preview and Commit the Update Set
+1. After the upload, find your newly uploaded update set on the **Retrieved Update Sets** page.  
+2. Click the **name** of the update set to open its record.  
+3. Click **Preview Update Set** in the upper-right corner to assess its suitability for your instance.  
+4. If there are preview errors, they will appear in the **Preview Problems** related list.  
+   - Select the error.  
+   - From the **Actions on selected rows** menu, choose **Accept remote update** to resolve it.  
+5. Once the preview is successful, click **Commit Update Set** to apply the changes to your instance.  
+6. Close the progress dialog box after the commit is complete.  
+
+---
+
+## 2. Ensure the Major Incident Plugin is Enabled
+
+Verify that the **Major Incident Plugin** is active in your ServiceNow instance.
+
+---
+
+## 3. Import the xMatters Workflow
+
+1. Log into **xMatters** as a user with the **Developer role**.  
+2. Navigate to **Workflows**.  
+3. Click the **Import** button (top right).  
+4. Import the file: ServiceNowFlowDesignerv2-MajorIncidentWorkbench.zip
+
+
+---
+
+## 4. Configure Trigger Profiles in Flow Designer
+
+Configure trigger profiles for:  
+- **Incident Task**  
+- **Incident Communication Task**
+
+## Trigger Profile: Incident Tasks
 
 To create a trigger profile, navigate to:
 
 **Everbridge Flow Designer → Global Settings → Trigger Profiles**
-
----
-
-## Trigger Profile: Incident Tasks
 
 1. Click **New** in the upper-right corner of the page.  
 2. Complete the following fields:
@@ -111,9 +155,18 @@ To create a trigger profile, navigate to:
 
 <img width="2650" height="974" alt="Incident_Communication_Task_TriggerProfile" src="https://github.com/user-attachments/assets/f49ecd55-f003-42a7-af6a-8475c56e94dd" />
 
+---
+
+## 5. Test the Integration
+
+Verify functionality by creating:  
+- A **Proposed Major Incident**  
+- An **Approved Major Incident**  
+- An **Incident Task** and **Incident Communication Task**  
+- These should trigger based on workflow selection.
 
 ## Diagram
-
+```mermaid
 flowchart TD
 
     A[Major Incident Created] --> B{State?}
@@ -134,3 +187,4 @@ flowchart TD
         K[Incident Communication Task Created/Updated] --> L[Trigger xMatters Notification for Comms]
         L --> M[Notify Communication Teams]
     end
+
